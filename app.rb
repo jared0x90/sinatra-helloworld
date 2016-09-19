@@ -11,6 +11,14 @@ configure do
     set :version, "0.0.1"
 end
 
+# define helpers
+helpers do
+  def h(text)
+    # used to safely escape html
+    Rack::Utils.escape_html(text)
+  end
+end
+
 # create routes
 get '/' do
     erb :index
@@ -32,7 +40,7 @@ __END__
 <h3>Using the "welcomer" inline template</h3>
 <h1>
 
-    Greetings <%= @name %>
+    Greetings <%=h @name %>
 </h1>
 <h5>
     Version <%= settings.version %>
@@ -41,7 +49,7 @@ __END__
 @@leaver
 <h3>Using the "leaver" inline template</h3>
 <h1>
-    Seeya later <%= @name %>
+    Seeya later <%=h @name %>
 </h1>
 <h5>
     Version <%= settings.version %>
