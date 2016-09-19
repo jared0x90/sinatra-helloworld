@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+    <body>
+        layout.erb Template:
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/welcome/TestUser">Welcome test</a></li>
+            <li><a href="/goodbye/OtherTestUser">Goodbye test</a></li>
+        </ul>
+        <p>~ Begin nested template ~</p>
+        <!-- begin yield -->
+        <%= yield %>
+        <!-- end yield -->
+        <p>~ end nested template ~</p>
+    </body>
+</html>
